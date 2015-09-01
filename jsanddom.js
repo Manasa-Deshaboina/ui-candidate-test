@@ -1,30 +1,58 @@
      // Example unit test function
      function divide( a, b ) {
         // To see the test pass, uncomment the following line
-        //return a / b;
+        return a / b;
      }
 
      // Write a function that takes a single argument (a string) and returns the string reversed.
      function reverseString(str) {
          // FILL THIS IN
+          var o = '';
+          for (var i = str.length - 1; i >= 0; i--)
+            o += str[i];
+          return o;
      }
 
      // Write a function that takes an array of numbers and returns the minimum value
      function findMinValue(values) {
          // FILL THIS IN
+         var min;
+         min = Math.min(values);
+         return min;
      }
 
      // Write a function that takes an array and returns the distinct values only (i.e. removes duplicates)
      function findDistinctValues(values) {
          // FILL THIS IN
+        return  _.uniq(values);
      }
 
      // Write a function that logs the numbers from 1 to 100 to the console.
      // For multiples of three print "Fizz" instead of the number.
      // For multiples of five print "Buzz".
      // For numbers which are multiples of both three and five print "FizzBuzz".
-     function doFizzBuzz() {
+     function doFizzBuzz(multiples, expected, both) {
          // FILL THIS IN
+         for(i=1;i<=100;i++){
+         for(j=0;j<multiples.length;j++) {
+            if(both=='true'){
+                try{
+                        if(((i % multiples[j])==0) &&((i % multiples[j+1])==0)){
+                             console.log(i+'------>'+expected);
+                        }
+                    }catch(err){
+                        console.log(err);
+                    }
+            }else{
+               if((i % multiples[j])==0){
+                 console.log(i+'------>'+expected);
+            } 
+            }
+
+        }
+           console.log(i);
+         }
+         return expected;
      }
 
      // You have a master array of strings, where each element is a fruit name.
@@ -46,16 +74,33 @@
      // Given a string, sourceStr, write some code that will split this string using comma as your delimiter, and producing an empty array if the string is empty.
      function splitListStrUsingComma(sourceStr) {
          // FILL THIS IN
+         var finalArray;
+         finalArray = sourceStr.split(',');
+         return finalArray;
+
      }
 
      // Write a function that will take any number of arguments and return their sum
      function sum() {
          // FILL THIS IN
+          var sum = 0;
+        for (i = 0; i < arguments.length; i++) {
+            sum = sum+arguments[i];
+        }
+        return sum;
      }
 
      // Write a function that will return true if a specified string consists of only whitespace.
      function isOnlyWhitespace(sourceStr) {
          // FILL THIS IN
+            
+          var match = sourceStr.match(/\s/);
+          var ismatched=false;
+          if(!match==''){
+            ismatched=true;
+          }
+          return ismatched;
+
      }
 
      // write an example of a javascript closure
